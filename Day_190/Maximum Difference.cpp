@@ -1,7 +1,6 @@
-
-class Solution {
+class Solution 
+{
   public:
-    /*You are required to complete this method */
     vector<int>preStart(vector<int> &arr)
     {
         stack<int>st;
@@ -46,7 +45,6 @@ class Solution {
     }
     int findMaxDiff(vector<int> &arr) 
     {
-        // Your code here
         int n = arr.size();
         vector<int>prefix(n);
         vector<int>suffix(n);
