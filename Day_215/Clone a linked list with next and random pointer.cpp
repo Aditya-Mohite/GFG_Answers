@@ -1,0 +1,37 @@
+
+class Solution {
+  public:
+    Node *copyList(Node *head) 
+    {
+        Node *cur = head;
+        while(cur)
+        {
+            Node *cloneNode = new Node(cur->data);
+            Node *temp = cur->next;
+            cur->next = cloneNode;
+            cloneNode->next = temp;
+            cur = cur->next->next;
+        }
+        
+        cur = head;
+        while(cur)
+        {
+            if(cur->random) 
+                cur->next->random = cur->random->next;
+            cur = cur->next->next;
+        }
+        
+        Node *clone = new Node(-1);
+        cur = head;
+        Node *temp = clone;
+        while(cur)
+        {
+            temp->next = cur->next;
+            cur->next = cur->next->next;
+            temp = temp->next;
+            cur = cur->next;
+        }
+        
+        return clone->next;
+    }
+};
